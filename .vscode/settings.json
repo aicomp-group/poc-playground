@@ -1,0 +1,90 @@
+{
+	"editor.defaultFormatter": "esbenp.prettier-vscode", // Automatically enable prettier for formatting
+	"editor.formatOnSave": false, // Auto format the code on save ( can be ignored on specific lines with comment //prettier-ignore above )
+	"editor.formatOnPaste": true, // Auto format the code on paste
+
+	"editor.detectIndentation": false, // That all files will use the same indentation settings
+	"editor.insertSpaces": false, // Use tabs instead of spaces
+	"prettier.useTabs": true, // Use tabs instead of spaces also on prettier
+
+	// tabSize 4 is forced, can easily changened because tabs are used for indentation
+	// when spaces are used for indentation, full codebase must be reformatted when this setting is changed
+	"editor.tabSize": 4,
+	"prettier.tabWidth": 4,
+
+	"prettier.printWidth": 160, // Maximum line width code will be wrapped at
+	"prettier.semi": false, // No semicolons at the end of lines
+	"prettier.singleQuote": true, // Use single quotes instead of double quotes
+	"prettier.bracketSpacing": true, // usually true but enforce for this project, that diffrent user not reformat codebase
+	"prettier.trailingComma": "es5", // usually true but enforce for this project, that diffrent user not reformat codebase
+
+	// For performance, disable file watching for node_modules and .git
+	"files.watcherExclude": {
+		"**/.git/**": true,
+		"**/.nyc_output/**": true,
+		"**/coverage/**": true,
+		"**/gen/**": true
+	},
+
+	"files.exclude": {
+		"**/resources/aic/ui5/**": false
+	},
+
+	"workbench.startupEditor": "none", // No welcome page on startup for this project
+
+	"js/ts.implicitProjectConfig.checkJs": true, // Enable type checking for JavaScript files
+
+	"git.enableSmartCommit": true, // Stages changes on commit if nothing staged already
+
+	// NOTE:
+	// to format full codebase with prettier, run `npx prettier --write .`
+	// for this command prettier settings are not used from settings.json
+	// so to run this once .prettierrc file must be temporarily created with all "prettier.*" settings from settings.json
+
+	"github.copilot.chat.commitMessageGeneration.instructions": [
+		{
+			"text": "Include the git branch name at the end of the commit message.  For example, if the git branch name is 'XXX-1234', then ' - XXX-1234' should be placed at the end of the commit message."
+		}
+	],
+	"terminal.integrated.scrollback": 10000,
+	"eslint.validate": ["cds", "csn", "csv", "csv (semicolon)", "tab", "tsv"],
+	"todo-tree.highlights.useColourScheme": true,
+	"todo-tree.highlights.customHighlight": {
+		"TODO": {
+			"foreground": "black",
+			"background": "yellow",
+			"iconColour": "yellow"
+		},
+		"FIXME": {
+			"foreground": "white",
+			"background": "red",
+			"iconColour": "red"
+		}
+	},
+	"todo-tree.general.tags": ["TODO", "REVISIT", "FIXME"],
+	"json.schemas": [
+		{
+			"fileMatch": ["*.applet.json"],
+			"url": "./schemas/applet.schema.json"
+		},
+		{
+			"fileMatch": ["*.applet-ui5.json"],
+			"url": "./schemas/applet-ui5.schema.json"
+		},
+		{
+			"fileMatch": ["*.app-type.json"],
+			"url": "./schemas/app-type.schema.json"
+		},
+		{
+			"fileMatch": ["*.app-type-ui5.json"],
+			"url": "./schemas/app-type-ui5.schema.json"
+		},
+		{
+			"fileMatch": ["*.component.json"],
+			"url": "./schemas/component.schema.json"
+		}
+	],
+	"[cds]": {
+		"editor.defaultFormatter": "SAPSE.vscode-cds"
+	}
+}
